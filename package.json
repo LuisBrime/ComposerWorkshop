@@ -1,0 +1,23 @@
+{
+    "name": "house-selling-network",
+    "version": "0.0.1",
+    "description": "A network to sell and buy houses",
+    "scripts": {
+      "test": "mocha --recursive"
+    },
+    "author": "Luis Brime",
+    "email": "brimegmz@gmail.com",
+    "license": "Apache-2.0",
+    "devDependencies": {
+      "composer-admin": "latest",
+      "composer-client": "latest",
+      "composer-common": "latest",
+      "composer-connector-embedded": "latest",
+      "chai": "latest",
+      "eslint": "latest",
+      "istanbul": "latest",
+      "mkdirp": "latest",
+      "mocha": "latest"
+    }
+  }
+  
