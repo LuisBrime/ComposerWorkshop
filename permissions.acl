@@ -16,7 +16,7 @@
 
 // Default Rules
 rule Default {
-  description: "Default rule"
+  description: "Default rule: All participants have access to all resources."
   participant: "ANY"
   operation: ALL
   resource: "brime.house.*"
@@ -24,7 +24,7 @@ rule Default {
 }
 
 rule SystemACL {
-  description: "System ACL to permit all access"
+  description: "System ACL to permit all access."
   participant: "org.hyperledger.composer.system.Participant"
   operation: ALL
   resource: "org.hyperledger.composer.system.**"
@@ -32,7 +32,7 @@ rule SystemACL {
 }
 
 rule NetworkAdminUser {
-  description: "Grant business network administrators full access to user resources"
+  description: "Grant business network administrators full access to user resources."
   participant: "org.hyperledger.composer.system.NetworkAdmin"
   operation: ALL
   resource: "**"
@@ -40,7 +40,7 @@ rule NetworkAdminUser {
 }
 
 rule NetworkAdminSystem {
-  description: "Grant business network administrators full access to system resources"
+  description: "Grant business network administrators full access to system resources."
   participant: "org.hyperledger.composer.system.NetworkAdmin"
   operation: ALL
   resource: "org.hyperledger.composer.system.**"
