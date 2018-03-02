@@ -14,7 +14,7 @@ son grabadas en el Blockchain de Fabric y son inmutables.
 ---
 Detalles de los participantes:
 #### Personas
-```json
+```js
 {
     "email": String, // ID
     "firstName": String,
@@ -25,7 +25,7 @@ Detalles de los participantes:
 Detalles de los activos:
 Los activos son los elementos que son intercambiados, modificados, leídos, etc por los participantes.
 ### Casas
-```json
+```js
 {
     "houseId": String,
     "houseAddress": {
@@ -43,7 +43,7 @@ Los activos son los elementos que son intercambiados, modificados, leídos, etc 
 ``` 
 
 ### Acuerdo de venta
-```json
+```js
 {
     "seller": Persona,
     "buyer": Persona,
@@ -54,7 +54,7 @@ El acuerdo de venta es utilizado para poder realizar una transacción de venta e
 ---
 Detalles de las transacciones:
 ### Registrar casa para venta
-```json
+```js
 {
     "house": Casa
 }
@@ -62,7 +62,7 @@ Detalles de las transacciones:
 Permite que una casa esté disponible para venta.
 
 ### Venta de casa
-```json
+```js
 {
     "sA": Acuerdo de venta
 }
@@ -83,4 +83,6 @@ Aquí veremos un breve tutorial para probar una red de manera remota.
 3. Llena los datos que te pide: Nombre de la red, descripción y nombre de la tarjeta de adminitrador de red.
 4. Da click en "Deploy".
 5. Diviértete.
+
+
 ![Have fun gif](https://media.giphy.com/media/3o6UBfwmyyFM9ieUgM/giphy.gif)
