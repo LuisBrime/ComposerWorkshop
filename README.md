@@ -81,8 +81,10 @@ Aquí veremos un breve tutorial para probar una red de manera remota.
 2. Da click en "Deploy a New Business Network".
 ![playground_2](./img/playground_2.png "Creación de nueva Red de Negocios")
 3. Llena los datos que te pide: Nombre de la red, descripción y nombre de la tarjeta de adminitrador de red.
-4. Da click en "Deploy".
-5. Diviértete.
+4. Selecciona el tipo de red que desees probar. Puede ser una ya creada, o subir tu propio archivo .bna.
+![playground_3](./img/playground_3.png "Selección de Red de Negocios")
+5. Da click en "Deploy".
+6. Diviértete.
 
 
 ![Have fun gif](https://media.giphy.com/media/3o6UBfwmyyFM9ieUgM/giphy.gif)
