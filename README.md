@@ -11,6 +11,7 @@ son grabadas en el Blockchain de Fabric y son inmutables.
 - Para más información acerca de [Hyperledger Composer](https://hyperledger.github.io/composer/latest/introduction/introduction.html).
 - Para más información acerca de [Hyperledger Fabric](http://hyperledger-fabric.readthedocs.io/en/release/)
 
+Si quieres instalar Composer de manera local, da click [aquí](#composer-local)
 ---
 Detalles de los participantes:
 #### Personas
@@ -86,5 +87,83 @@ Aquí veremos un breve tutorial para probar una red de manera remota.
 5. Da click en "Deploy".
 6. Diviértete.
 
-
 ![Have fun gif](https://media.giphy.com/media/3o6UBfwmyyFM9ieUgM/giphy.gif)
+---
+## Composer local
+Se recomienda utilizar un sistema basado en Linux para su fácil instalación. Instalar los [prerequisitos](https://hyperledger.github.io/composer/installing/installing-prereqs).
+Es esencial tener nvm, npm, node y Docker.
+
+### Para instalar el ambiente de desarrollo
+#### Herramientas (Son opcionales pero necesarias para desarrollo) -- Opcional
+composer-cli son los comandos básicos de desarrollo de Composer.
+composer-rest-server ayuda a montar una API REST para poder interactuar con la red.
+generator-hyperledger-composer ayuda a generar esqueletos de desarrollo de red.
+yo es una herramienta para crear esqueletos de aplicaciones o de red.
+```
+npm install -g composer-cli
+npm install -g composer-rest-server
+npm install -g generator-hyperledger-composer
+npm install -g yo
+```
+#### Playground (Para probar de manera "bonita" las redes) -- Opcional
+```
+npm install -g composer-playground
+```
+### Fabric -- Requerido
+1. En un directorio (~/fabric-tools recomendado), descargar el archivo .zip con las herraminetas:
+```
+mkdir ~/fabric-tools && cd ~/fabric-tools
+
+curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.zip
+unzip fabric-dev-servers.zip
+```
+2. Usar los scripts para descargar Hyperledger Fabric de manera local.
+```
+cd ~/fabric-tools
+./downloadFabric.sh
+```
+3. Comenzar Fabric. Hay que matar y eliminar todos los contenedores previos de Fabric:
+```
+docker kill $(docker ps -q)
+docker rm $(docker ps -aq)
+docker rmi $(docker images dev-* -q)
+```
+Si es la primera vez que se instala el ambiente, hay que crear una PeerAdmin card:
+```
+cd ~/fabric-tools
+./startFabric.sh
+./createPeerAdminCard.sh
+```
+Al terminar de usar Fabric, se puede detener y quitar Fabric:
+```
+./stopFabric.sh
+./teardownFabric.sh
+```
+Si se utiliza el comando de teardown, hay que volver a crear una carta la próxima vez que se use.
+
+4. Para empezar la red:
+- Hay que crear el archivo .bna:
+```
+composer archive create -t dir -n . -a dist/house-selling-network.bna
+```
+
+- Empezar el ambiente de Composer:
+```
+cd dist/
+composer runtime install -c PeerAdmin@hlfv1 -n house-selling-network
+```
+
+- Comenzar con la red de negocios:
+```
+composer network start -c PeerAdmin@hlfv1 -A admin -S adminpw --archiveFile house-selling-network.bna --file networkadmin.card
+```
+
+- Importar la identidad de administrador para poder usarla:
+```
+composer card import --file networkadmin.card
+```
+
+- Para probar si la red está funcionando, se puede hacer un ping:
+```
+composer network ping -c admin@house-selling-network
+```
