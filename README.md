@@ -1,5 +1,7 @@
 # Composer Workshop - ITESM CCM
 ---
+IMPORTANTE: Este proyecto fue hecho para una versión antigüa de Hyperledger Composer a la que está actualmente (16/08/18) y el tutorial no ha sido actualizado.
+
 Este proyecto fue hecho para propósitos educacionales y para el 'Blockchain Workshop' del
 ITESM CCM.
 
@@ -110,27 +112,23 @@ npm install -g yo
 npm install -g composer-playground
 ```
 ### Fabric -- Requerido
-1. En un directorio (~/fabric-tools recomendado), descargar el archivo .zip con las herraminetas:
+1. En un directorio (~/fabric-dev-servers recomendado), descargar el archivo .zip con las herraminetas:
 ```
-mkdir ~/fabric-tools && cd ~/fabric-tools
+mkdir ~/fabric-dev-servers && cd ~/fabric-dev-servers
 
-curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.zip
-unzip fabric-dev-servers.zip
+curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
+tar -xvf fabric-dev-servers.tar.gz
 ```
 2. Usar los scripts para descargar Hyperledger Fabric de manera local.
 ```
-cd ~/fabric-tools
+cd ~/fabric-dev-servers
+export FABRIC_VERSION=hlfv12
 ./downloadFabric.sh
 ```
-3. Comenzar Fabric. Hay que matar y eliminar todos los contenedores previos de Fabric:
+3. Si es la primera vez que se instala el ambiente, hay que crear una PeerAdmin card:
 ```
-docker kill $(docker ps -q)
-docker rm $(docker ps -aq)
-docker rmi $(docker images dev-* -q)
-```
-Si es la primera vez que se instala el ambiente, hay que crear una PeerAdmin card:
-```
-cd ~/fabric-tools
+cd ~/fabric-dev-servers
+export FABRIC_VERSION=hlfv12
 ./startFabric.sh
 ./createPeerAdminCard.sh
 ```
@@ -139,7 +137,14 @@ Al terminar de usar Fabric, se puede detener y quitar Fabric:
 ./stopFabric.sh
 ./teardownFabric.sh
 ```
-Si se utiliza el comando de teardown, hay que volver a crear una carta la próxima vez que se use.
+Si se utiliza el comando de teardown, hay que volver a crear una PeerAdminCard la próxima vez que se use.
+
+NOTA: Si se quiere reinstalar una nueva versión o estás usando una versión anterior de Composer, se deben de matar y eliminar los contenedores de Docker:
+```
+docker kill $(docker ps -q)
+docker rm $(docker ps -aq)
+docker rmi $(docker images dev-* -q)
+```
 
 4. Para empezar la red:
 - Hay que crear el archivo .bna:
