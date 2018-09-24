@@ -1,6 +1,6 @@
 # Composer Workshop - ITESM CCM
 ---
-IMPORTANTE: Este proyecto fue hecho para una versión antigüa de Hyperledger Composer a la que está actualmente (16/08/18) y el tutorial no ha sido actualizado.
+PART OF HYPERLEDGER MEETUP MEXICO CITY @ TEC CCM
 
 Este proyecto fue hecho para propósitos educacionales y para el 'Blockchain Workshop' del
 ITESM CCM.
