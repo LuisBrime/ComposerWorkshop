@@ -92,7 +92,7 @@ Aquí veremos un breve tutorial para probar una red de manera remota.
 ![Have fun gif](https://media.giphy.com/media/3o6UBfwmyyFM9ieUgM/giphy.gif)
 ---
 ## Composer local
-Se recomienda utilizar un sistema basado en Linux o MacOSX para su fácil instalación. Instalar los [prerequisitos](https://hyperledger.github.io/composer/installing/installing-prereqs).
+Se recomienda utilizar un sistema basado en Linux o MacOSX para su fácil instalación. Instalar los [prerequisitos](https://hyperledger.github.io/composer/latest/installing/installing-prereqs).
 Es esencial tener nvm, npm, node y Docker.
 
 ### Para instalar el ambiente de desarrollo
