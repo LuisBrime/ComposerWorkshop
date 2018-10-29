@@ -149,18 +149,17 @@ docker rmi $(docker images dev-* -q)
 4. Para empezar la red:
 - Hay que crear el archivo .bna:
 ```
-composer archive create -t dir -n . -a dist/house-selling-network.bna
+composer archive create -t dir -n .
 ```
 
 - Empezar el ambiente de Composer:
 ```
-cd dist/
-composer runtime install -c PeerAdmin@hlfv1 -n house-selling-network
+composer network install -c PeerAdmin@hlfv1 -a house-selling-network@0.0.2.bna
 ```
 
 - Comenzar con la red de negocios:
 ```
-composer network start -c PeerAdmin@hlfv1 -A admin -S adminpw --archiveFile house-selling-network.bna --file networkadmin.card
+composer network start -n house-selling-network -V 0.0.2 -c PeerAdmin@hlfv1 -A admin -S adminpw --file networkadmin.card
 ```
 
 - Importar la identidad de administrador para poder usarla:
